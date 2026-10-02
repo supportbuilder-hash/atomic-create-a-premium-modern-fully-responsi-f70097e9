@@ -30,11 +30,11 @@
       "eyebrow": "Lahore, Pakistán",
       "name": "Rao Muhammad Ali",
       "role": "Ingeniero de Desarrollo de Software en Pruebas",
-      "intro": "Pruebo productos desde la perspectiva del usuario y los casos extremos del sistema, convirtiendo comportamientos poco claros en bugs reproducibles, verificaciones automatizadas confiables y mejores lanzamientos.",
+      "intro": "Pruebo productos desde la perspectiva del usuario y los casos extremos del sistema, convirtiendo comportamientos inciertos en bugs reproducibles, verificaciones automatizadas confiables y mejores lanzamientos.",
       "primaryCta": "Ver Mi Trabajo",
       "secondaryCta": "Descargar CV",
       "availabilityLabel": "Abierto a nuevas oportunidades",
-      "availabilityNote": "Basado en Lahore — feliz de trabajar en diferentes zonas horarias con el equipo indicado.",
+      "availabilityNote": "Basado en Lahore — disponible para trabajar en diferentes zonas horarias con el equipo indicado.",
       "resumeNote": "(PDF próximamente — contáctame y te lo enviaré directamente)",
       "threeDLabel": "Pruebas más allá del camino feliz.",
       "email": "rao.placeholder@example.com",
@@ -53,7 +53,7 @@
     "expertise": {
       "eyebrow": "Experiencia en Pruebas",
       "title": "Dónde me enfoco",
-      "subtitle": "Selecciona un área para ver cómo realmente la abordo.",
+      "subtitle": "Selecciona un área para ver cómo la abordo realmente.",
       "areas": [
         {
           "key": "functional",
@@ -112,7 +112,7 @@
       "title": "Cómo una prueba pasa de idea a cobertura de regresión",
       "subtitle": "Un breve recorrido por el pipeline que uso para convertir un requisito en algo en lo que todo el equipo pueda confiar.",
       "codeSample": "import { test, expect } from '@playwright/test';\n\ntest('user can reset password with a valid link', async ({ page }) => {\n  await page.goto('/login');\n  await page.getByRole('link', { name: 'Forgot password?' }).click();\n\n  await page.getByLabel('Email').fill('qa.user@example.com');\n  await page.getByRole('button', { name: 'Send reset link' }).click();\n\n  await expect(page.getByText('Check your email')).toBeVisible();\n\n  // Simulate following the reset link from the email\n  await page.goto('/reset-password?token=test-token-123');\n  await page.getByLabel('New password').fill('N3wPassword!23');\n  await page.getByLabel('Confirm password').fill('N3wPassword!23');\n  await page.getByRole('button', { name: 'Update password' }).click();\n\n  await expect(page.getByText('Password updated')).toBeVisible();\n  await expect(page).toHaveURL('/login');\n});",
-      "demoLabel": "Demostración interactiva — no datos de producción en vivo",
+      "demoLabel": "Demostración interactiva — sin datos de producción en vivo",
       "workflowSteps": [
         "Requirement",
         "Test scenario",
@@ -188,8 +188,12 @@
         "Test complex workflows involving authentication, role-based access, payments, KYC verification, cloud file imports, encryption-related behavior, real-time chat, and AI-generated content"
       ]
     },
+    "caseStudies": {
+      "eyebrow": "Trabajos Seleccionados",
+      "title": "Casos de Estudio"
+    },
     "systems": {
-      "eyebrow": "Sistemas que he probado",
+      "eyebrow": "Sistemas que he Probado",
       "title": "Flujos de trabajo complejos entre productos",
       "subtitle": "Selecciona un nodo para ver riesgos comunes y cómo lo pruebo.",
       "nodes": [
@@ -256,7 +260,7 @@
       ]
     },
     "skills": {
-      "eyebrow": "Herramientas y habilidades",
+      "eyebrow": "Herramientas y Habilidades",
       "title": "Con qué trabajo",
       "groups": [
         {
@@ -295,7 +299,7 @@
       ]
     },
     "philosophy": {
-      "eyebrow": "Cómo pienso sobre la calidad",
+      "eyebrow": "Cómo Pienso sobre la Calidad",
       "title": "Mi enfoque, en resumen",
       "principles": [
         {
@@ -342,116 +346,20 @@
       ]
     },
     "caseStudiesSection": {
-      "eyebrow": "Trabajo",
+      "eyebrow": "Trabajos",
       "labels": {
         "approach": "Enfoque",
         "challenge": "Desafío",
         "context": "Contexto",
-        "current": "Estado actual",
-        "learned": "Aprendizajes clave",
-        "responsibility": "Mi rol",
-        "roadmap": "Hoja de ruta",
-        "scenarios": "Escenarios de usuario",
+        "current": "Estado Actual",
+        "learned": "Aprendizajes Clave",
+        "responsibility": "Mi Rol",
+        "roadmap": "Hoja de Ruta",
+        "scenarios": "Escenarios de Usuario",
         "tools": "Herramientas"
       },
       "subtitle": "Problemas reales, soluciones reflexivas.",
-      "title": "Estudios de caso"
-    },
-    "caseStudies": [
-      {
-        "slug": "atomic-builder",
-        "name": "Atomic Builder",
-        "url": "https://builder.hotcode.ai/",
-        "tag": "AI Product",
-        "context": "Atomic Builder is an AI-powered product builder that generates working websites from a prompt, with user accounts, project workspaces, and multi-step generation flows.",
-        "challenge": "Generation flows involve asynchronous states, partial failures, and user input that can arrive in almost any order, which makes it easy for edge cases to slip past a quick manual pass.",
-        "responsibility": "I tested core user journeys from signup through project creation and generation, focusing on where the experience could quietly break without throwing a visible error.",
-        "approach": "I combined manual exploratory testing of multi-step flows with targeted checks on authentication, validation messages, and loading or generation states, then verified behavior across different screen sizes.",
-        "scenarios": [
-          "Signing up, logging in, and session handling across tabs and reloads",
-          "Starting a project, interrupting generation, and resuming it",
-          "Invalid or edge-case prompts and form inputs",
-          "Error handling when a generation step fails",
-          "Responsive behavior across desktop and mobile breakpoints",
-          "Regression risk introduced by new builder features"
-        ],
-        "tools": [
-          "Manual testing",
-          "Browser DevTools",
-          "Exploratory testing",
-          "Cross-browser checks"
-        ],
-        "learned": "Testing a product that generates its own output taught me to treat loading and intermediate states as first-class scenarios, not just the final result."
-      },
-      {
-        "slug": "veridatai",
-        "name": "VeridatAI",
-        "url": "https://veridat-demo.daticsai.com/",
-        "tag": "Identity & KYC",
-        "context": "VeridatAI handles identity verification and KYC-style workflows, including document uploads, validation checks, and role-based access for different user types.",
-        "challenge": "Verification workflows are sensitive by nature. A false pass or an unclear rejection reason has a real impact on the person on the other end, so the testing has to be deliberately pessimistic.",
-        "responsibility": "I tested document handling, validation rules, and role-based access, with particular attention to negative scenarios and how the system communicated rejections.",
-        "approach": "I worked through valid and invalid document submissions, checked access boundaries between roles, and reviewed how encryption-related behavior and data handling were reflected in the interface and responses.",
-        "scenarios": [
-          "Uploading valid, invalid, and malformed documents",
-          "Role-based access between applicant, reviewer, and admin views",
-          "Validation messaging for rejected or incomplete submissions",
-          "Session and permission boundaries across roles",
-          "Usability of the verification flow for a first-time user",
-          "Negative scenarios around data entered out of expected format"
-        ],
-        "tools": [
-          "Manual testing",
-          "Postman",
-          "Exploratory testing",
-          "Role-based access checks"
-        ],
-        "learned": "Working on KYC-style flows reinforced that clear rejection reasons are as much a quality requirement as a correct approval, and I keep an eye out for that balance now in any sensitive workflow."
-      },
-      {
-        "slug": "qa-assistant",
-        "name": "QA Assistant",
-        "url": null,
-        "tag": "AI Prototype — Roadmap",
-        "context": "QA Assistant is my own evolving prototype: a tool that accepts a QA-related request in plain language and returns structured testing guidance.",
-        "challenge": "Getting an LLM to return consistently structured, genuinely useful QA output, rather than generic advice, took more prompt and workflow iteration than I expected.",
-        "responsibility": "I designed the working core: the request-to-response pipeline that turns a QA question into structured guidance, and I test it the way I'd test any product I'm building.",
-        "approach": "The current working core accepts a QA-related request and returns structured guidance through an LLM processing step. I test it with a range of realistic and deliberately vague requests to see where the structure holds up and where it breaks down.",
-        "scenarios": [
-          "Well-formed QA requests versus vague or incomplete ones",
-          "Requests outside the tool's intended scope",
-          "Consistency of the response structure across repeated runs",
-          "Reasonable behavior when the request is ambiguous"
-        ],
-        "tools": [
-          "Manual testing",
-          "Prompt iteration",
-          "Exploratory testing"
-        ],
-        "learned": "This project is a reminder that full RAG, database persistence, browser execution, multi-agent collaboration, and production deployment are planned roadmap items, not completed functionality yet. The working core is the request-to-response pipeline described above."
-      },
-      {
-        "slug": "library-management-system",
-        "name": "Library Management System",
-        "url": null,
-        "tag": "Academic Project",
-        "context": "An academic full-stack project implementing authentication, admin access, book management, and issue and return workflows with fines and due dates.",
-        "challenge": "Keeping book availability, issue records, and fine calculations in sync across concurrent actions was the trickiest part of the system to get right.",
-        "responsibility": "This was development work rather than professional QA, built end-to-end by me including the database schema, business logic, and front end.",
-        "approach": "I tested my own implementation as I built it: checking authentication and admin boundaries, issue and return logic, fine calculation against due dates, and database synchronization after each action.",
-        "scenarios": [
-          "Admin versus regular user access boundaries",
-          "Issuing and returning a book, including overdue cases",
-          "Fine calculation accuracy against due dates",
-          "Database state staying consistent after repeated actions"
-        ],
-        "tools": [
-          "Manual testing",
-          "SQL",
-          "Full-stack development"
-        ],
-        "learned": "Building and testing the same system at the same time made clear how much easier testing becomes when the requirements and edge cases are considered from the start, not bolted on afterward."
-      }
-    ]
+      "title": "Casos de Estudio"
+    }
   }
 }

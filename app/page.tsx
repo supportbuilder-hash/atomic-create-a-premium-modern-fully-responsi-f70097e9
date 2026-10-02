@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Briefcase, Code2, ExternalLink, Mail, MapPin, Milestone } from 'lucide-react';
+import { ArrowRight, Briefcase, Code2, Mail, MapPin } from 'lucide-react';
 import { useTranslations } from "next-intl";
 import AutomationDemoPanel from "@/components/AutomationDemoPanel";
 import ContactForm from "@/components/blocks/ContactForm";
@@ -168,190 +168,93 @@ export default function Page() {
             </div>
 
             <div className="mt-12 grid gap-8 md:grid-cols-2">
-              <div>
-                <p className="mb-2 text-xs text-muted-foreground">playwright/tests/reset-password.spec.ts</p>
-                <pre className="glass-strong overflow-x-auto rounded-xl p-6 font-mono text-sm leading-relaxed">
-                  <code>
-                    <span className="text-muted-foreground">{"// Verifies a user can reset their password end to end\n"}</span>
-                    <span className="text-primary">import</span> {"{ test, expect } "}
-                    <span className="text-primary">from</span> <span className="text-secondary">&apos;@playwright/test&apos;</span>;{"\n\n"}
-                    <span className="text-primary">test</span>(<span className="text-secondary">&apos;user can reset password with a valid link&apos;</span>, <span className="text-primary">async</span> ({"{ page }"}) {"=> {"}{"\n"}
-                    {"  "}<span className="text-primary">await</span> page.goto(<span className="text-secondary">&apos;/forgot-password&apos;</span>);{"\n"}
-                    {"  "}<span className="text-primary">await</span> page.getByLabel(<span className="text-secondary">&apos;Email&apos;</span>).fill(<span className="text-secondary">&apos;qa.user@example.com&apos;</span>);{"\n"}
-                    {"  "}<span className="text-primary">await</span> page.getByRole(<span className="text-secondary">&apos;button&apos;</span>, {"{ name: "}<span className="text-secondary">&apos;Send reset link&apos;</span>{" }"}).click();{"\n\n"}
-                    {"  "}<span className="text-muted-foreground">{"// Confirmation state, not just a toast\n"}</span>
-                    {"  "}<span className="text-primary">await</span> expect(page.getByText(<span className="text-secondary">&apos;Check your inbox&apos;</span>)).toBeVisible();{"\n\n"}
-                    {"  "}<span className="text-primary">const</span> resetLink = <span className="text-primary">await</span> getLatestResetLink(<span className="text-secondary">&apos;qa.user@example.com&apos;</span>);{"\n"}
-                    {"  "}<span className="text-primary">await</span> page.goto(resetLink);{"\n"}
-                    {"  "}<span className="text-primary">await</span> page.getByLabel(<span className="text-secondary">&apos;New password&apos;</span>).fill(<span className="text-secondary">&apos;Str0ngPass!2&apos;</span>);{"\n"}
-                    {"  "}<span className="text-primary">await</span> page.getByRole(<span className="text-secondary">&apos;button&apos;</span>, {"{ name: "}<span className="text-secondary">&apos;Update password&apos;</span>{" }"}).click();{"\n\n"}
-                    {"  "}<span className="text-primary">await</span> expect(page).toHaveURL(<span className="text-secondary">&apos;/login&apos;</span>);{"\n"}
-                    {"}"});{"\n"}
-                  </code>
-                </pre>
-              </div>
-              <AutomationDemoPanel checks={demoChecks} label={t("automation.demoLabel")} />
-            </div>
-
-            <div className="mt-12">
-              <FeatureGrid items={featureItems} columns={3} variant="glass" />
+              <AutomationDemoPanel checks={demoChecks} />
+              <FeatureGrid items={featureItems} columns={2} variant="glass" />
             </div>
           </div>
         </Reveal>
       </section>
 
-      {/* Professional experience */}
-      <section id="experience" className="bg-background py-24 md:py-32">
+      {/* Experience */}
+      <section id="experience" className="bg-background py-20 md:py-28">
         <Reveal>
-          <div className="mx-auto max-w-4xl px-6">
+          <div className="mx-auto max-w-3xl px-6">
             <SectionHeader eyebrow={t("experience.eyebrow")} title={t("experience.title")} align="left" />
-            <div className="mt-4">
-              <p className="font-display text-xl font-semibold">{t("experience.role")}</p>
-              <p className="text-muted-foreground">{t("experience.company")}</p>
-            </div>
-
-            <div className="relative mt-10 pl-8">
-              <div aria-hidden="true" className="absolute left-[11px] top-2 bottom-2 w-px bg-border" />
-              <ul className="space-y-8">
-                {experienceBullets.map((bullet, i) => (
-                  <li key={i} className="relative">
-                    <span className="absolute -left-8 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-primary/50 bg-card text-primary">
-                      <Milestone className="h-3.5 w-3.5" aria-hidden="true" />
-                    </span>
-                    <p className="leading-relaxed text-muted-foreground">{bullet}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="mt-8 space-y-4">
+              {experienceBullets.map((bullet, i) => (
+                <li key={i} className="flex gap-3 text-muted-foreground">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </Reveal>
       </section>
 
       {/* Case studies */}
-      <section id="work" className="bg-muted/30 py-24 md:py-32">
+      <section id="work" className="bg-muted/30 py-20 md:py-28">
         <Reveal>
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader eyebrow={t("caseStudiesSection.eyebrow")} title={t("caseStudiesSection.title")} subtitle={t("caseStudiesSection.subtitle")} />
-            <div className="space-y-10">
+          <div className="mx-auto max-w-7xl px-6">
+            <SectionHeader eyebrow={t("caseStudies.eyebrow") || ""} title={t("caseStudies.title") || ""} />
+            <div className="grid gap-8 md:grid-cols-2">
               {caseStudies.map((study) => (
-                <article
-                  key={study.name}
-                  className="surface-elevated rounded-2xl p-8 md:p-10"
-                >
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div>
-                      <p className="text-sm font-semibold uppercase tracking-wider text-primary">{study.tag}</p>
-                      <h3 className="mt-1 font-display text-2xl font-semibold">{study.name}</h3>
-                    </div>
-                    {study.url && (
-                      <a
-                        href={study.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline"
-                      >
-                        {study.url.replace("https://", "")}
-                        <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                      </a>
-                    )}
+                <div key={study.name} className="surface-elevated rounded-2xl border border-border p-6">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-display text-xl font-semibold">{study.name}</h3>
+                    <Badge variant="secondary">{study.tag}</Badge>
                   </div>
-
-                  <div className="mt-6 grid gap-6 md:grid-cols-2">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("caseStudiesSection.labels.context")}</p>
-                      <p className="mt-2 leading-relaxed text-muted-foreground">{study.context}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("caseStudiesSection.labels.challenge")}</p>
-                      <p className="mt-2 leading-relaxed text-muted-foreground">{study.challenge}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("caseStudiesSection.labels.responsibility")}</p>
-                      <p className="mt-2 leading-relaxed text-muted-foreground">{study.responsibility}</p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("caseStudiesSection.labels.approach")}</p>
-                      <p className="mt-2 leading-relaxed text-muted-foreground">{study.approach}</p>
-                    </div>
+                  <p className="mt-4 text-sm text-muted-foreground">{study.context}</p>
+                  <p className="mt-2 text-sm text-muted-foreground"><strong>{study.challenge}</strong></p>
+                  <p className="mt-2 text-sm text-muted-foreground">{study.responsibility}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{study.approach}</p>
+                  <ul className="mt-4 space-y-1">
+                    {study.scenarios.map((s, i) => (
+                      <li key={i} className="text-sm text-muted-foreground">• {s}</li>
+                    ))}
+                  </ul>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {study.tools.map((tool) => (
+                      <Badge key={tool} variant="outline">{tool}</Badge>
+                    ))}
                   </div>
-
-                  <div className="mt-6">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("caseStudiesSection.labels.scenarios")}</p>
-                    <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                      {study.scenarios.map((scenario, i) => (
-                        <li key={i} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                          {scenario}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-6">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t("caseStudiesSection.labels.tools")}</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {study.tools.map((tool) => (
-                        <Badge key={tool} variant="secondary">
-                          {tool}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-6 rounded-xl border border-border bg-card/50 p-5">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-primary">{t("caseStudiesSection.labels.learned")}</p>
-                    <p className="mt-2 leading-relaxed text-muted-foreground">{study.learned}</p>
-                  </div>
-
-                  {study.roadmap && study.roadmap.length > 0 && (
-                    <div className="mt-8 rounded-xl border border-dashed border-muted-foreground/40 p-6">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <Badge variant="outline">{t("caseStudiesSection.labels.current")}</Badge>
-                        <Badge variant="outline" className="border-dashed text-muted-foreground">
-                          {t("caseStudiesSection.labels.roadmap")}
-                        </Badge>
-                      </div>
-                      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                        {study.roadmap.map((item, i) => (
-                          <li key={i} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
-                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted-foreground" aria-hidden="true" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <p className="mt-4 text-sm italic text-muted-foreground">{study.learned}</p>
+                  {study.url && (
+                    <a href={study.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-medium text-primary">
+                      {study.url}
+                    </a>
                   )}
-                </article>
+                </div>
               ))}
             </div>
           </div>
         </Reveal>
       </section>
 
-      {/* Systems tested */}
-      <section id="systems" className="bg-background py-20 md:py-28">
-        <Reveal>
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader eyebrow={t("systems.eyebrow")} title={t("systems.title")} subtitle={t("systems.subtitle")} />
-            <SystemsGraph nodes={systemsNodes} />
-          </div>
-        </Reveal>
-      </section>
+      {/* Systems graph */}
+      {systemsNodes.length > 0 && (
+        <section id="systems" className="bg-background py-20 md:py-28">
+          <Reveal>
+            <div className="mx-auto max-w-7xl px-6">
+              <SectionHeader eyebrow={t("systems.eyebrow") || ""} title={t("systems.title") || ""} />
+              <SystemsGraph nodes={systemsNodes} />
+            </div>
+          </Reveal>
+        </section>
+      )}
 
-      {/* Tools and skills */}
+      {/* Skills */}
       <section id="skills" className="bg-muted/30 py-20 md:py-28">
         <Reveal>
           <div className="mx-auto max-w-5xl px-6">
-            <SectionHeader eyebrow={t("skills.eyebrow")} title={t("skills.title")} />
-            <div className="grid gap-8 sm:grid-cols-2">
+            <SectionHeader eyebrow={t("skills.eyebrow") || ""} title={t("skills.title") || ""} />
+            <div className="grid gap-8 md:grid-cols-2">
               {skillGroups.map((group) => (
-                <div key={group.group} className="surface-elevated rounded-2xl p-6">
-                  <h3 className="font-display text-base font-semibold">{group.group}</h3>
-                  <div className="mt-4 flex flex-wrap gap-2">
+                <div key={group.group}>
+                  <h3 className="font-display text-lg font-semibold">{group.group}</h3>
+                  <div className="mt-3 flex flex-wrap gap-2">
                     {group.items.map((item) => (
-                      <Badge key={item} variant="outline">
-                        {item}
-                      </Badge>
+                      <Badge key={item} variant="outline">{item}</Badge>
                     ))}
                   </div>
                 </div>
@@ -362,37 +265,32 @@ export default function Page() {
       </section>
 
       {/* Philosophy */}
-      <section id="philosophy" className="bg-mesh py-24 md:py-32">
-        <Reveal>
-          <div className="mx-auto max-w-6xl px-6">
-            <SectionHeader eyebrow={t("philosophy.eyebrow")} title={t("philosophy.title")} />
-            <div className="grid gap-6 sm:grid-cols-2">
-              {principles.map((principle, i) => (
-                <div key={principle.title} className="glass relative overflow-hidden rounded-2xl p-8 transition duration-200 hover:-translate-y-1 hover:shadow-glow motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-                  <span className="pointer-events-none absolute -right-2 -top-6 font-display text-8xl font-bold text-foreground/5" aria-hidden="true">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="relative font-display text-lg font-semibold">{principle.title}</h3>
-                  <p className="relative mt-3 leading-relaxed text-muted-foreground">{principle.description}</p>
-                </div>
-              ))}
+      {principles.length > 0 && (
+        <section id="philosophy" className="bg-background py-20 md:py-28">
+          <Reveal>
+            <div className="mx-auto max-w-7xl px-6">
+              <SectionHeader eyebrow={t("philosophy.eyebrow") || ""} title={t("philosophy.title") || ""} />
+              <FeatureGrid
+                items={principles.map((p) => ({ title: p.title, description: p.description }))}
+                columns={3}
+                variant="minimal"
+              />
             </div>
-          </div>
-        </Reveal>
-      </section>
+          </Reveal>
+        </section>
+      )}
 
       {/* Contact */}
       <ContactForm
         id="contact"
-        eyebrow={t("contact.eyebrow")}
-        title={t("contact.title")}
-        subtitle={t("contact.subtitle")}
-        nameLabel={t("contact.nameLabel")}
-        emailLabel={t("contact.emailLabel")}
-        messageLabel={t("contact.messageLabel")}
-        submitLabel={t("contact.submitLabel")}
-        successMessage={t("contact.successMessage")}
-        errorMessage={t("contact.errorMessage")}
+        eyebrow={t("contact.eyebrow") || ""}
+        title={t("contact.title") || ""}
+        subtitle={t("contact.subtitle") || ""}
+        nameLabel={t("contact.nameLabel") || "Name"}
+        emailLabel={t("contact.emailLabel") || "Email"}
+        messageLabel={t("contact.messageLabel") || "Message"}
+        submitLabel={t("contact.submitLabel") || "Send"}
+        successMessage={t("contact.successMessage") || "Thanks for reaching out!"}
         details={contactDetails}
         onSubmit={handleContactSubmit}
         variant="split"
