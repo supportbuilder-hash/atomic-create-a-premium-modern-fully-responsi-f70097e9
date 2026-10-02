@@ -34,8 +34,11 @@
       "primaryCta": "View My Work",
       "secondaryCta": "Download Résumé",
       "availabilityLabel": "Open to new opportunities",
+      "availabilityNote": "Based in Lahore — happy to work across time zones for the right team.",
+      "resumeNote": "(PDF coming soon — reach out and I'll send it directly)",
       "threeDLabel": "Testing beyond the happy path.",
-      "email": "rao.placeholder@example.com"
+      "email": "rao.placeholder@example.com",
+      "aside": "Selected work"
     },
     "about": {
       "eyebrow": "About",
@@ -44,7 +47,8 @@
         "I currently work at DaticsAI, where I test web, mobile, and desktop applications across the development lifecycle. Most days that means writing manual test cases for new features, digging into edge cases nobody thought to mention, and figuring out whether a bug is a one-off or a pattern worth flagging to the whole team.",
         "A good chunk of my work is automation with Playwright, backend validation through Postman, and the occasional JMeter session when a feature needs to prove it can handle real load. I don't automate everything by default. I automate the paths that are stable and worth protecting, and I leave the exploratory, judgment-heavy work to manual testing where it actually belongs.",
         "Before moving into QA I spent time doing front-end development, and that background still shows up in how I work. I can read a component tree, open dev tools and tell you whether a bug is a rendering issue, a state problem, or something coming back wrong from the API. It also means conversations with developers tend to be shorter, because I can usually point at the actual cause instead of just describing the symptom."
-      ]
+      ],
+      "location": "Based in"
     },
     "expertise": {
       "eyebrow": "Testing Expertise",
@@ -410,13 +414,13 @@
     },
     "contact": {
       "eyebrow": "Contact",
-      "title": "Let's talk about quality",
-      "subtitle": "Whether you have a role in mind or just want to talk about testing strategy, I'd be glad to hear from you.",
+      "title": "Let's talk",
+      "subtitle": "Reach out about an SDET role, a QA consulting need, or just to talk testing.",
       "nameLabel": "Name",
       "emailLabel": "Email",
-      "messageLabel": "Message",
+      "messageLabel": "What are you working on?",
       "submitLabel": "Send message",
-      "successMessage": "Thanks, I will get back to you soon.",
+      "successMessage": "Thanks — I'll get back to you soon.",
       "details": [
         {
           "label": "Email",
@@ -431,7 +435,23 @@
           "value": "linkedin.com/in/rao-muhammad-ali-placeholder"
         }
       ],
-      "errorMessage": "Something went wrong. Please try again or reach out directly on LinkedIn."
+      "errorMessage": "Something went wrong, please try again or email me directly."
+    },
+    "caseStudiesSection": {
+      "eyebrow": "Work",
+      "labels": {
+        "approach": "Approach",
+        "challenge": "Challenge",
+        "context": "Context",
+        "current": "Current State",
+        "learned": "Key Learnings",
+        "responsibility": "My Role",
+        "roadmap": "Roadmap",
+        "scenarios": "User Scenarios",
+        "tools": "Tools"
+      },
+      "subtitle": "Real problems, thoughtful solutions.",
+      "title": "Case Studies"
     }
   }
 }

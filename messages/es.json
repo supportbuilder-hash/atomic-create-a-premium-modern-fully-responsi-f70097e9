@@ -30,16 +30,20 @@
       "eyebrow": "Lahore, Pakistán",
       "name": "Rao Muhammad Ali",
       "role": "Ingeniero de Desarrollo de Software en Pruebas",
-      "intro": "Pruebo productos desde la perspectiva del usuario y los casos extremos del sistema, convirtiendo comportamientos inciertos en bugs reproducibles, verificaciones automatizadas confiables y mejores lanzamientos.",
+      "intro": "Pruebo productos desde la perspectiva del usuario y los casos extremos del sistema, convirtiendo comportamientos poco claros en bugs reproducibles, verificaciones automatizadas confiables y mejores lanzamientos.",
       "primaryCta": "Ver Mi Trabajo",
       "secondaryCta": "Descargar CV",
       "availabilityLabel": "Abierto a nuevas oportunidades",
+      "availabilityNote": "Basado en Lahore — feliz de trabajar en diferentes zonas horarias con el equipo indicado.",
+      "resumeNote": "(PDF próximamente — contáctame y te lo enviaré directamente)",
       "threeDLabel": "Pruebas más allá del camino feliz.",
-      "email": "rao.placeholder@example.com"
+      "email": "rao.placeholder@example.com",
+      "aside": "Trabajo seleccionado"
     },
     "about": {
       "eyebrow": "Acerca de",
       "title": "Un enfoque práctico de la calidad",
+      "location": "Basado en",
       "paragraphs": [
         "I currently work at DaticsAI, where I test web, mobile, and desktop applications across the development lifecycle. Most days that means writing manual test cases for new features, digging into edge cases nobody thought to mention, and figuring out whether a bug is a one-off or a pattern worth flagging to the whole team.",
         "A good chunk of my work is automation with Playwright, backend validation through Postman, and the occasional JMeter session when a feature needs to prove it can handle real load. I don't automate everything by default. I automate the paths that are stable and worth protecting, and I leave the exploratory, judgment-heavy work to manual testing where it actually belongs.",
@@ -169,8 +173,8 @@
     },
     "experience": {
       "eyebrow": "Trayectoria",
-      "title": "Dónde he trabajado",
-      "role": "Ingeniero de Desarrollo de Software en Pruebas",
+      "title": "Donde he trabajado",
+      "role": "Ingeniero de Desarrollo en Pruebas",
       "company": "DaticsAI",
       "bullets": [
         "Test web, mobile, and desktop applications throughout the development lifecycle",
@@ -185,7 +189,7 @@
       ]
     },
     "systems": {
-      "eyebrow": "Sistemas que He Probado",
+      "eyebrow": "Sistemas que he probado",
       "title": "Flujos de trabajo complejos entre productos",
       "subtitle": "Selecciona un nodo para ver riesgos comunes y cómo lo pruebo.",
       "nodes": [
@@ -314,14 +318,14 @@
     },
     "contact": {
       "eyebrow": "Contacto",
-      "title": "Hablemos sobre calidad",
-      "subtitle": "Ya sea que tengas un puesto en mente o simplemente quieras hablar sobre estrategia de pruebas, me encantaría saber de ti.",
+      "title": "Hablemos",
+      "subtitle": "Ponte en contacto sobre un rol de SDET, una necesidad de consultoría en QA, o simplemente para hablar sobre pruebas.",
       "nameLabel": "Nombre",
       "emailLabel": "Correo electrónico",
-      "messageLabel": "Mensaje",
+      "messageLabel": "¿En qué estás trabajando?",
       "submitLabel": "Enviar mensaje",
-      "successMessage": "Gracias, me pondré en contacto pronto.",
-      "errorMessage": "Algo salió mal. Por favor, intenta de nuevo o comunícate directamente en LinkedIn.",
+      "successMessage": "Gracias — me pondré en contacto pronto.",
+      "errorMessage": "Algo salió mal, por favor intenta de nuevo o envíame un correo directamente.",
       "details": [
         {
           "label": "Email",
@@ -336,6 +340,22 @@
           "value": "linkedin.com/in/rao-muhammad-ali-placeholder"
         }
       ]
+    },
+    "caseStudiesSection": {
+      "eyebrow": "Trabajo",
+      "labels": {
+        "approach": "Enfoque",
+        "challenge": "Desafío",
+        "context": "Contexto",
+        "current": "Estado actual",
+        "learned": "Aprendizajes clave",
+        "responsibility": "Mi rol",
+        "roadmap": "Hoja de ruta",
+        "scenarios": "Escenarios de usuario",
+        "tools": "Herramientas"
+      },
+      "subtitle": "Problemas reales, soluciones reflexivas.",
+      "title": "Estudios de caso"
     },
     "caseStudies": [
       {
