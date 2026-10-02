@@ -1,0 +1,36 @@
+{
+  "brand": {
+    "name": "Rao Muhammad Ali",
+    "tagline": "Software Development Engineer in Test",
+    "logoUrl": null
+  },
+  "navLinks": [
+    { "key": "about", "href": "#about" },
+    { "key": "expertise", "href": "#expertise" },
+    { "key": "automation", "href": "#automation" },
+    { "key": "experience", "href": "#experience" },
+    { "key": "work", "href": "#work" },
+    { "key": "systems", "href": "#systems" },
+    { "key": "skills", "href": "#skills" },
+    { "key": "philosophy", "href": "#philosophy" },
+    { "key": "contact", "href": "#contact" }
+  ],
+  "primaryCta": { "key": "primary", "href": "#contact" },
+  "footerColumns": [
+    {
+      "key": "explore",
+      "links": [
+        { "key": "about", "href": "#about" },
+        { "key": "work", "href": "#work" },
+        { "key": "contact", "href": "#contact" }
+      ]
+    }
+  ],
+  "socialLinks": [
+    { "platform": "linkedin", "href": "https://linkedin.com/in/rao-muhammad-ali-placeholder" },
+    { "platform": "github", "href": "https://github.com/rao-muhammad-ali-placeholder" }
+  ],
+  "motion": { "intensity": 5 },
+  "navbarVariant": "split",
+  "footerVariant": "columns"
+}

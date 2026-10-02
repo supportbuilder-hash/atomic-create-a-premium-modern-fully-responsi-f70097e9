@@ -1,0 +1,437 @@
+{
+  "nav": {
+    "about": "Acerca de",
+    "expertise": "Experiencia",
+    "automation": "Laboratorio de Automatización",
+    "experience": "Trayectoria",
+    "work": "Casos de Estudio",
+    "systems": "Sistemas Probados",
+    "skills": "Habilidades",
+    "philosophy": "Filosofía",
+    "contact": "Contacto"
+  },
+  "cta": {
+    "primary": "Hablemos"
+  },
+  "footer": {
+    "tagline": "Ingeniería de calidad práctica — pruebas manuales, automatización y rendimiento.",
+    "rights": "Todos los derechos reservados.",
+    "columns": {
+      "explore": "Explorar"
+    },
+    "links": {
+      "about": "Acerca de",
+      "work": "Casos de Estudio",
+      "contact": "Contacto"
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "eyebrow": "Lahore, Pakistán",
+      "name": "Rao Muhammad Ali",
+      "role": "Ingeniero de Desarrollo de Software en Pruebas",
+      "intro": "Pruebo productos desde la perspectiva del usuario y los casos extremos del sistema, convirtiendo comportamientos inciertos en bugs reproducibles, verificaciones automatizadas confiables y mejores lanzamientos.",
+      "primaryCta": "Ver Mi Trabajo",
+      "secondaryCta": "Descargar CV",
+      "availabilityLabel": "Abierto a nuevas oportunidades",
+      "threeDLabel": "Pruebas más allá del camino feliz.",
+      "email": "rao.placeholder@example.com"
+    },
+    "about": {
+      "eyebrow": "Acerca de",
+      "title": "Un enfoque práctico de la calidad",
+      "paragraphs": [
+        "I currently work at DaticsAI, where I test web, mobile, and desktop applications across the development lifecycle. Most days that means writing manual test cases for new features, digging into edge cases nobody thought to mention, and figuring out whether a bug is a one-off or a pattern worth flagging to the whole team.",
+        "A good chunk of my work is automation with Playwright, backend validation through Postman, and the occasional JMeter session when a feature needs to prove it can handle real load. I don't automate everything by default. I automate the paths that are stable and worth protecting, and I leave the exploratory, judgment-heavy work to manual testing where it actually belongs.",
+        "Before moving into QA I spent time doing front-end development, and that background still shows up in how I work. I can read a component tree, open dev tools and tell you whether a bug is a rendering issue, a state problem, or something coming back wrong from the API. It also means conversations with developers tend to be shorter, because I can usually point at the actual cause instead of just describing the symptom."
+      ]
+    },
+    "expertise": {
+      "eyebrow": "Experiencia en Pruebas",
+      "title": "Dónde me enfoco",
+      "subtitle": "Selecciona un área para ver cómo realmente la abordo.",
+      "areas": [
+        {
+          "key": "functional",
+          "label": "Functional testing",
+          "description": "I verify that a feature does what the requirements say, then quietly check the few things the requirements forgot to mention, like what happens on a second attempt or a half-filled form."
+        },
+        {
+          "key": "regression",
+          "label": "Regression testing",
+          "description": "Before a release I re-run the paths that matter most, not the whole app blindly. A change in one module has a habit of breaking something three screens away."
+        },
+        {
+          "key": "exploratory",
+          "label": "Exploratory testing",
+          "description": "I investigate how real users may behave beyond the documented happy path, including incomplete actions, unexpected navigation, invalid data, and interrupted workflows."
+        },
+        {
+          "key": "ui-usability",
+          "label": "UI & usability testing",
+          "description": "I check whether the interface actually makes sense to use, not just whether it matches the design file. Confusing error states and unclear loading feedback get flagged just as often as visual bugs."
+        },
+        {
+          "key": "api",
+          "label": "API testing",
+          "description": "I validate requests and responses with Postman, covering expected payloads, missing fields, wrong types, and status codes that don't match what the front end actually expects."
+        },
+        {
+          "key": "automation",
+          "label": "Browser automation",
+          "description": "I build Playwright scripts for the flows that repeat every release, login, checkout-style journeys, form submissions, so the team gets fast feedback without re-testing the same thing by hand each time."
+        },
+        {
+          "key": "performance",
+          "label": "Performance & load testing",
+          "description": "In approved QA environments I use JMeter to see how an endpoint behaves under concurrent requests, where response times start to drift, and where the system actually breaks."
+        },
+        {
+          "key": "compatibility",
+          "label": "Cross-browser & compatibility testing",
+          "description": "I check layout, behavior, and timing-sensitive interactions across browsers and screen sizes, since the bug that never shows up on your machine is usually waiting on someone else's."
+        },
+        {
+          "key": "defect-reporting",
+          "label": "Defect reporting & verification",
+          "description": "I write defect reports a developer can act on immediately: exact steps, expected versus actual behavior, environment, and evidence. Then I verify the fix against the original scenario, not just a quick glance."
+        },
+        {
+          "key": "requirements",
+          "label": "Requirements & user-flow analysis",
+          "description": "I map out the user flow before writing test cases so I know which paths are critical, which are edge cases, and where the requirements are actually ambiguous."
+        }
+      ]
+    },
+    "automation": {
+      "eyebrow": "Laboratorio de Automatización",
+      "title": "Cómo una prueba pasa de idea a cobertura de regresión",
+      "subtitle": "Un breve recorrido por el pipeline que uso para convertir un requisito en algo en lo que todo el equipo pueda confiar.",
+      "codeSample": "import { test, expect } from '@playwright/test';\n\ntest('user can reset password with a valid link', async ({ page }) => {\n  await page.goto('/login');\n  await page.getByRole('link', { name: 'Forgot password?' }).click();\n\n  await page.getByLabel('Email').fill('qa.user@example.com');\n  await page.getByRole('button', { name: 'Send reset link' }).click();\n\n  await expect(page.getByText('Check your email')).toBeVisible();\n\n  // Simulate following the reset link from the email\n  await page.goto('/reset-password?token=test-token-123');\n  await page.getByLabel('New password').fill('N3wPassword!23');\n  await page.getByLabel('Confirm password').fill('N3wPassword!23');\n  await page.getByRole('button', { name: 'Update password' }).click();\n\n  await expect(page.getByText('Password updated')).toBeVisible();\n  await expect(page).toHaveURL('/login');\n});",
+      "demoLabel": "Demostración interactiva — no datos de producción en vivo",
+      "workflowSteps": [
+        "Requirement",
+        "Test scenario",
+        "Playwright script",
+        "Browser execution",
+        "Assertion",
+        "Report",
+        "Regression coverage"
+      ],
+      "cards": [
+        {
+          "title": "Playwright automation",
+          "description": "End-to-end scripts for login, navigation, and critical workflows, written to fail with a clear reason instead of a vague timeout."
+        },
+        {
+          "title": "API validation with Postman",
+          "description": "Collections that check status codes, response shape, and failure handling before the front end ever touches the endpoint."
+        },
+        {
+          "title": "JMeter performance testing",
+          "description": "Load profiles run in approved QA environments to see how response times hold up as concurrent users increase."
+        },
+        {
+          "title": "Regression suite design",
+          "description": "A curated set of checks that protect the paths that matter, kept lean on purpose so failures are meaningful, not noise."
+        },
+        {
+          "title": "Reusable test data and structure",
+          "description": "Fixtures and page objects shared across scripts, so a UI change means updating one file, not fifteen."
+        },
+        {
+          "title": "Failure evidence and reporting",
+          "description": "Screenshots, traces, and step logs attached to every failing run, so a developer can see exactly what happened without reproducing it first."
+        }
+      ],
+      "demoChecks": [
+        {
+          "name": "Login with valid credentials",
+          "status": "Passed"
+        },
+        {
+          "name": "Password reset flow",
+          "status": "Passed"
+        },
+        {
+          "name": "API: create user with missing field",
+          "status": "Needs Review"
+        },
+        {
+          "name": "Checkout with expired session",
+          "status": "Running"
+        },
+        {
+          "name": "Cross-browser layout check",
+          "status": "Queued"
+        }
+      ]
+    },
+    "experience": {
+      "eyebrow": "Trayectoria",
+      "title": "Dónde he trabajado",
+      "role": "Ingeniero de Desarrollo de Software en Pruebas",
+      "company": "DaticsAI",
+      "bullets": [
+        "Test web, mobile, and desktop applications throughout the development lifecycle",
+        "Design and execute manual and automated test scenarios",
+        "Build and maintain Playwright browser automation",
+        "Validate APIs and backend behavior using Postman",
+        "Perform performance and load-testing exercises with JMeter in approved QA environments",
+        "Investigate defects and document reproducible steps, evidence, expected behavior, and actual behavior",
+        "Verify fixes and execute regression testing before releases",
+        "Collaborate with developers and product stakeholders to clarify requirements and reduce release risk",
+        "Test complex workflows involving authentication, role-based access, payments, KYC verification, cloud file imports, encryption-related behavior, real-time chat, and AI-generated content"
+      ]
+    },
+    "systems": {
+      "eyebrow": "Sistemas que He Probado",
+      "title": "Flujos de trabajo complejos entre productos",
+      "subtitle": "Selecciona un nodo para ver riesgos comunes y cómo lo pruebo.",
+      "nodes": [
+        {
+          "key": "auth",
+          "label": "Authentication",
+          "risks": "Session handling, token expiry, and inconsistent behavior across tabs or logout flows.",
+          "approach": "I check login, logout, session expiry, and concurrent sessions across devices, including what happens when a token goes stale mid-action."
+        },
+        {
+          "key": "payments",
+          "label": "Payments",
+          "risks": "Failed or partial transactions, duplicate charges, and unclear states when a payment is interrupted.",
+          "approach": "I test successful and failed payment paths, interrupted transactions, and how the UI communicates a pending or failed state to the user."
+        },
+        {
+          "key": "kyc",
+          "label": "KYC verification",
+          "risks": "Ambiguous rejection reasons and inconsistent handling of edge-case documents.",
+          "approach": "I focus on negative scenarios: invalid documents, mismatched data, and whether rejection messaging actually helps the user correct the problem."
+        },
+        {
+          "key": "rbac",
+          "label": "Role-based access",
+          "risks": "Permission boundaries that leak between roles, especially after a role change.",
+          "approach": "I verify each role sees and can do only what it should, and I specifically test behavior right after a permission change."
+        },
+        {
+          "key": "cloud-imports",
+          "label": "Cloud file imports",
+          "risks": "Large files, unsupported formats, and interrupted uploads leaving the system in a half-finished state.",
+          "approach": "I test normal imports alongside oversized files, wrong formats, and connection drops mid-upload to see how gracefully the system recovers."
+        },
+        {
+          "key": "chat",
+          "label": "Real-time chat",
+          "risks": "Message ordering, delivery gaps, and state drift between connected clients.",
+          "approach": "I test message delivery across multiple clients, reconnect scenarios, and ordering when messages arrive close together."
+        },
+        {
+          "key": "ai-content",
+          "label": "AI-generated content",
+          "risks": "Inconsistent output quality, unclear loading states, and failure handling when generation doesn't complete.",
+          "approach": "I treat generation as a multi-state process, testing the loading, partial, and failure states as carefully as the final output."
+        },
+        {
+          "key": "data-validation",
+          "label": "Data validation",
+          "risks": "Invalid input silently accepted, or valid input incorrectly rejected.",
+          "approach": "I test boundary values, wrong types, and malformed input against both the UI and the API directly to confirm validation matches on both sides."
+        },
+        {
+          "key": "error-recovery",
+          "label": "Error recovery",
+          "risks": "Errors that leave the app in a stuck or inconsistent state instead of recovering cleanly.",
+          "approach": "I deliberately trigger failures mid-flow to see whether the app recovers, retries, or just gets stuck with no way forward."
+        },
+        {
+          "key": "cross-platform",
+          "label": "Cross-platform behavior",
+          "risks": "Features that behave differently across web, mobile, and desktop builds of the same product.",
+          "approach": "I compare the same workflow across platforms, looking for timing differences, layout issues, and behavior that only breaks on one build."
+        }
+      ]
+    },
+    "skills": {
+      "eyebrow": "Herramientas y habilidades",
+      "title": "Con qué trabajo",
+      "groups": [
+        {
+          "group": "Automation",
+          "items": [
+            "Playwright"
+          ]
+        },
+        {
+          "group": "API & Performance",
+          "items": [
+            "Postman",
+            "JMeter"
+          ]
+        },
+        {
+          "group": "Testing",
+          "items": [
+            "Manual testing",
+            "Functional testing",
+            "Regression testing",
+            "Exploratory testing",
+            "Usability testing",
+            "Compatibility testing"
+          ]
+        },
+        {
+          "group": "Technical Foundation",
+          "items": [
+            "Front-end development knowledge",
+            "Web application architecture",
+            "Browser developer tools",
+            "AI and agentic workflow fundamentals"
+          ]
+        }
+      ]
+    },
+    "philosophy": {
+      "eyebrow": "Cómo pienso sobre la calidad",
+      "title": "Mi enfoque, en resumen",
+      "principles": [
+        {
+          "title": "Understand the user journey before writing test cases",
+          "description": "I'd rather spend twenty minutes mapping out how someone actually moves through a feature than write ten test cases for the wrong path."
+        },
+        {
+          "title": "Test beyond the happy path",
+          "description": "The happy path almost always works. I'm more interested in what happens when someone double-clicks submit, goes back mid-flow, or enters something nobody expected."
+        },
+        {
+          "title": "Make every defect easy to reproduce",
+          "description": "A bug report a developer can't reproduce is just a conversation starter, not a fix. I write steps, evidence, and expected-versus-actual so the issue speaks for itself."
+        },
+        {
+          "title": "Automate stable, valuable regression paths, not everything blindly",
+          "description": "Automation is a tool, not a goal. I automate the flows that are stable and worth protecting, and I keep exploring the rest by hand where judgment actually matters."
+        }
+      ]
+    },
+    "contact": {
+      "eyebrow": "Contacto",
+      "title": "Hablemos sobre calidad",
+      "subtitle": "Ya sea que tengas un puesto en mente o simplemente quieras hablar sobre estrategia de pruebas, me encantaría saber de ti.",
+      "nameLabel": "Nombre",
+      "emailLabel": "Correo electrónico",
+      "messageLabel": "Mensaje",
+      "submitLabel": "Enviar mensaje",
+      "successMessage": "Gracias, me pondré en contacto pronto.",
+      "errorMessage": "Algo salió mal. Por favor, intenta de nuevo o comunícate directamente en LinkedIn.",
+      "details": [
+        {
+          "label": "Email",
+          "value": "rao.placeholder@example.com"
+        },
+        {
+          "label": "Location",
+          "value": "Lahore, Pakistan"
+        },
+        {
+          "label": "LinkedIn",
+          "value": "linkedin.com/in/rao-muhammad-ali-placeholder"
+        }
+      ]
+    },
+    "caseStudies": [
+      {
+        "slug": "atomic-builder",
+        "name": "Atomic Builder",
+        "url": "https://builder.hotcode.ai/",
+        "tag": "AI Product",
+        "context": "Atomic Builder is an AI-powered product builder that generates working websites from a prompt, with user accounts, project workspaces, and multi-step generation flows.",
+        "challenge": "Generation flows involve asynchronous states, partial failures, and user input that can arrive in almost any order, which makes it easy for edge cases to slip past a quick manual pass.",
+        "responsibility": "I tested core user journeys from signup through project creation and generation, focusing on where the experience could quietly break without throwing a visible error.",
+        "approach": "I combined manual exploratory testing of multi-step flows with targeted checks on authentication, validation messages, and loading or generation states, then verified behavior across different screen sizes.",
+        "scenarios": [
+          "Signing up, logging in, and session handling across tabs and reloads",
+          "Starting a project, interrupting generation, and resuming it",
+          "Invalid or edge-case prompts and form inputs",
+          "Error handling when a generation step fails",
+          "Responsive behavior across desktop and mobile breakpoints",
+          "Regression risk introduced by new builder features"
+        ],
+        "tools": [
+          "Manual testing",
+          "Browser DevTools",
+          "Exploratory testing",
+          "Cross-browser checks"
+        ],
+        "learned": "Testing a product that generates its own output taught me to treat loading and intermediate states as first-class scenarios, not just the final result."
+      },
+      {
+        "slug": "veridatai",
+        "name": "VeridatAI",
+        "url": "https://veridat-demo.daticsai.com/",
+        "tag": "Identity & KYC",
+        "context": "VeridatAI handles identity verification and KYC-style workflows, including document uploads, validation checks, and role-based access for different user types.",
+        "challenge": "Verification workflows are sensitive by nature. A false pass or an unclear rejection reason has a real impact on the person on the other end, so the testing has to be deliberately pessimistic.",
+        "responsibility": "I tested document handling, validation rules, and role-based access, with particular attention to negative scenarios and how the system communicated rejections.",
+        "approach": "I worked through valid and invalid document submissions, checked access boundaries between roles, and reviewed how encryption-related behavior and data handling were reflected in the interface and responses.",
+        "scenarios": [
+          "Uploading valid, invalid, and malformed documents",
+          "Role-based access between applicant, reviewer, and admin views",
+          "Validation messaging for rejected or incomplete submissions",
+          "Session and permission boundaries across roles",
+          "Usability of the verification flow for a first-time user",
+          "Negative scenarios around data entered out of expected format"
+        ],
+        "tools": [
+          "Manual testing",
+          "Postman",
+          "Exploratory testing",
+          "Role-based access checks"
+        ],
+        "learned": "Working on KYC-style flows reinforced that clear rejection reasons are as much a quality requirement as a correct approval, and I keep an eye out for that balance now in any sensitive workflow."
+      },
+      {
+        "slug": "qa-assistant",
+        "name": "QA Assistant",
+        "url": null,
+        "tag": "AI Prototype — Roadmap",
+        "context": "QA Assistant is my own evolving prototype: a tool that accepts a QA-related request in plain language and returns structured testing guidance.",
+        "challenge": "Getting an LLM to return consistently structured, genuinely useful QA output, rather than generic advice, took more prompt and workflow iteration than I expected.",
+        "responsibility": "I designed the working core: the request-to-response pipeline that turns a QA question into structured guidance, and I test it the way I'd test any product I'm building.",
+        "approach": "The current working core accepts a QA-related request and returns structured guidance through an LLM processing step. I test it with a range of realistic and deliberately vague requests to see where the structure holds up and where it breaks down.",
+        "scenarios": [
+          "Well-formed QA requests versus vague or incomplete ones",
+          "Requests outside the tool's intended scope",
+          "Consistency of the response structure across repeated runs",
+          "Reasonable behavior when the request is ambiguous"
+        ],
+        "tools": [
+          "Manual testing",
+          "Prompt iteration",
+          "Exploratory testing"
+        ],
+        "learned": "This project is a reminder that full RAG, database persistence, browser execution, multi-agent collaboration, and production deployment are planned roadmap items, not completed functionality yet. The working core is the request-to-response pipeline described above."
+      },
+      {
+        "slug": "library-management-system",
+        "name": "Library Management System",
+        "url": null,
+        "tag": "Academic Project",
+        "context": "An academic full-stack project implementing authentication, admin access, book management, and issue and return workflows with fines and due dates.",
+        "challenge": "Keeping book availability, issue records, and fine calculations in sync across concurrent actions was the trickiest part of the system to get right.",
+        "responsibility": "This was development work rather than professional QA, built end-to-end by me including the database schema, business logic, and front end.",
+        "approach": "I tested my own implementation as I built it: checking authentication and admin boundaries, issue and return logic, fine calculation against due dates, and database synchronization after each action.",
+        "scenarios": [
+          "Admin versus regular user access boundaries",
+          "Issuing and returning a book, including overdue cases",
+          "Fine calculation accuracy against due dates",
+          "Database state staying consistent after repeated actions"
+        ],
+        "tools": [
+          "Manual testing",
+          "SQL",
+          "Full-stack development"
+        ],
+        "learned": "Building and testing the same system at the same time made clear how much easier testing becomes when the requirements and edge cases are considered from the start, not bolted on afterward."
+      }
+    ]
+  }
+}
